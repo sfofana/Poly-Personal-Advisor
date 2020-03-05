@@ -21,8 +21,6 @@
 </nav> 
 
 <section>
-  <button (click)='add()'>add</button>
-  <p *ngFor="let res of results">{{res | json}}</p>
   <router-outlet></router-outlet>
 </section>
 
@@ -43,7 +41,7 @@
             <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
           </a>
           <!--GitHub-->
-          <a class="ins-ic" href="https://github.com/sfofana/JS.Fofana-Health" target="_blank">
+          <a class="ins-ic" href="https://github.com/sfofana/Poly-Personal-Advisor" target="_blank">
             <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
           </a>
           <!--Youtube-->
@@ -75,7 +73,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog cascading-modal" role="document">
 
     <!--Content-->
-    <div class="modal-content">
+    <div class="modal-content popup">
 
       <!--Header-->
       <div class="modal-header sign white-text">
@@ -84,7 +82,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       <!--Body-->
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
-          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+          <mdb-icon fas icon="envelope" class="prefix dark-text"></mdb-icon>
           <input type="email" id="defaultForm-email" [(ngModel)]="email" class="form-control"
                  mdbInput mdbValidate>
           <label for="defaultForm-email">Email</label>
@@ -92,7 +90,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
         </div>
 
         <div class="md-form mb-4">
-          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+          <mdb-icon fas icon="lock" class="prefix dark-text"></mdb-icon>
           <input type="password" id="defaultForm-pass" [(ngModel)]="password" class="form-control"
                  mdbInput mdbValidate>
           <label for="defaultForm-pass">Password</label>
@@ -101,10 +99,10 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       </div>
       
 
-        <div class="modal-footer d-flex justify-content-center">
+        <div class="spacer d-flex justify-content-center">
           <button mdbBtn class="btn white-text" mdbWavesEffect (keyup.enter)="login()" (click)="login()">LOGIN</button>
         </div>
-        <div class="modal-footer d-flex justify-content-center">
+        <div class="spacer d-flex justify-content-center">
           <p class="success" *ngIf="success">{{success}}</p>
           <p class="invalid" *ngIf="invalid">{{invalid}}</p>
         </div>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { UnsubscribeService } from './services/unsubscribe.service';
 import { takeUntil } from 'rxjs/operators';
 import { User } from './models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   private employee = new User();
   results: any[];
 
-  constructor(private service: UserService, private memory: UnsubscribeService, private repository: AngularFireDatabase) {}
+  constructor(private service: UserService, private memory: UnsubscribeService, private router: Router) {}
 
   ngOnInit() {
    this.user.email='sufyanfofana@yahoo.com';
@@ -37,9 +37,6 @@ export class AppComponent implements OnInit {
   ngOnDestroy(){
     this.memory.unsubscribe.next();
     this.memory.unsubscribe.complete();
-  }
-  add(){
-    //this.repository.list('/PolyPersonalAdvisor/user').push(this.user);
   }
 
   login(){
@@ -58,6 +55,8 @@ export class AppComponent implements OnInit {
         if(res.email == this.email && res.password == this.password){
           this.cancel();
           this.success = 'Successful Login';
+          this.router.navigate(['client']);
+          this.canLogout=true;
           this.employee = res;
         }   
       } 
@@ -72,7 +71,7 @@ export class AppComponent implements OnInit {
   }
 
   logout(){
-    //this.router.navigate(['']);
+    this.router.navigate(['']);
     localStorage.clear();
     this.canLogout=false;
   }

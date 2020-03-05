@@ -14,11 +14,15 @@ import { environment } from 'src/environments/environment';
 import { UserService } from './services/user.service';
 import { RepositoryService } from './services/repository.service';
 import { UnsubscribeService } from './services/unsubscribe.service';
+import { ClientComponent } from './components/client/client.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ClientComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { UnsubscribeService } from './services/unsubscribe.service';
     WavesModule,
     ButtonsModule,
     CardsModule,
-    ModalModule
+    ModalModule,
+    ChartsModule
   ],
   providers: [
     UserService,
